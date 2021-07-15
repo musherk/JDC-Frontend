@@ -5,7 +5,7 @@
  <div class="col-2">
         <router-link class="btn btn-success" to="/lessons/add">Ajouter un cours</router-link ></div>    </div>
         <div v-for="lesson in lessons"  :key="lesson.id">
-          <LessonItem :lesson="lesson"/>
+          <LessonItem :lesson="lesson" @deleteLesson="deleteLesson($event)"/>
         </div>
         <div v-if="lessons.length == 0">
            Il n'y a aucun cours actuellement...
@@ -34,6 +34,13 @@ export default {
     this.getLessons();
   },
   methods:{
+    deleteLesson(id){
+      axios.delete(`http://localhost:8000/api/lessons/${id}`,{}).then((res) => {
+        if(res.status===200){
+          this.getLessons();
+        }
+      });
+    },
     getLessons(){
        axios.get(`http://localhost:8000/api/lessons`,{}).then((res) => {
         this.lessons = res.data;  

@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-10"><b>{{teacher.name}}</b></div>
             <div class="col-1 align-self-end"><button type="button" class="btn btn-warning">Editer</button></div>
-            <div class="col-1"><button type="button" class="btn btn-danger">Supprimer</button></div>
+            <div class="col-1"><button type="button" class="btn btn-danger" @click="deleteTeacher">Supprimer</button></div>
           </div>
         </div>
         <div class="card-body" v-if="lessons.length>0">
@@ -44,6 +44,11 @@ export default {
     this.getLessonsByTeacher();
   },
   methods:{
+    deleteTeacher(){
+      if(confirm(`Voulez-vous vraiment supprimer ce professeur ?\nEn supprimant ce professeur, vous risquez de perdre tous les cours liés à celui-ci !`)){
+          this.$emit("deleteTeacher",this.teacher.id);
+      }
+    },
     getLessonsByTeacher(){
        axios.get(`http://localhost:8000/api/lessons/teacher/${this.teacher.id}`,{}).then((res) => {
         this.lessons = res.data;

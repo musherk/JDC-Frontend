@@ -6,7 +6,7 @@
         <router-link class="btn btn-success" to="/teachers/add">Ajouter un professeur</router-link ></div>
     </div>
     <div v-for="teacher in teachers"  :key="teacher.id">
-      <TeacherItem :teacher="teacher"/>
+      <TeacherItem :teacher="teacher" @deleteTeacher="deleteTeacher($event)"/>
     </div>
     <div v-if="teachers.length == 0">
         Il n'y a aucun professeur actuellement...
@@ -35,6 +35,13 @@ export default {
     this.getTeachers();
   },
   methods:{
+    deleteTeacher(id){
+      axios.delete(`http://localhost:8000/api/teachers/${id}`,{}).then((res) => {
+        if(res.status===200){
+          this.getTeachers();
+        }
+      });
+    },
     getTeachers(){
        axios.get(`http://localhost:8000/api/teachers`,{}).then((res) => {
         this.teachers = res.data;  

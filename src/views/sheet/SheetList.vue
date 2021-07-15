@@ -6,7 +6,7 @@
         <router-link class="btn btn-success" to="/sheets/add">Ajouter une fiche</router-link ></div>
     </div>
     <div v-for="sheet in sheets"  :key="sheet.id">
-      <SheetItem :sheet="sheet"/>
+      <SheetItem :sheet="sheet" @deleteSheet="deleteSheet($event)"/>
     </div>
     <div v-if="sheets.length == 0">
         Il n'y a aucune fiche actuellement...
@@ -32,6 +32,13 @@ export default {
     this.getSheets();
   },
   methods:{
+    deleteSheet(id){
+      axios.delete(`http://localhost:8000/api/sheets/${id}`,{}).then((res) => {
+        if(res.status===200){
+          this.getSheets();
+        }
+      });
+    },
     getSheets(){
        axios.get(`http://localhost:8000/api/sheets`,{}).then((res) => {
         this.sheets = res.data;  

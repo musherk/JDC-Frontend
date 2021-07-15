@@ -6,7 +6,7 @@
           <div class="row">
             <div class="col-10"><b>{{lesson.name}}</b></div>
             <div class="col-1 align-self-end"><button type="button" class="btn btn-warning">Editer</button></div>
-            <div class="col-1"><button type="button" class="btn btn-danger">Supprimer</button></div>
+            <div class="col-1"><button type="button" class="btn btn-danger" @click="deleteLesson">Supprimer</button></div>
           </div>
           
         </div>
@@ -46,6 +46,11 @@ export default {
        axios.get(`http://localhost:8000/api/teachers/${this.lesson.teacher_id}`,{}).then((res) => {
         this.teacher = res.data;
       });
+    },
+    deleteLesson(){
+      if(confirm(`Voulez-vous vraiment supprimer ce cours ?`)){
+          this.$emit("deleteLesson",this.lesson.id);
+      }
     }
   }
 }

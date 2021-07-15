@@ -64,12 +64,11 @@ export default {
     onSave(){
       axios.post(`http://localhost:8000/api/lessons`, this.lesson).then(res=>{
           if(res.status == 201){
-            this.message = res.data.message;
+             this.message = res.data.message;
              this.isAdded=true;
              this.isError=false;
           }
       }).catch(err=>{
-        console.log("dqqdsqdsqds",err)
           this.message = err.response.data.message;
           this.isAdded=false;
           this.isError=true;
