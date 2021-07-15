@@ -2,17 +2,18 @@
   <div class="lesson">
     <div class="row">
       <div class="col-10"><h1>Les cours</h1></div>
-      <div class="col-2"><button type="button" class="btn btn-success">Ajouter un cours</button></div>
-    </div>
-    <div v-for="lesson in lessons"  :key="lesson.id">
-      <LessonItem :lesson="lesson"/>
-    </div>
+ <div class="col-2">
+        <router-link class="btn btn-success" to="/lessons/add">Ajouter un cours</router-link ></div>    </div>
+        <div v-for="lesson in lessons"  :key="lesson.id">
+          <LessonItem :lesson="lesson"/>
+        </div>
+        <div v-if="lessons.length == 0">
+           Il n'y a aucun cours actuellement...
+        </div>
   </div>
 </template>
 <style scoped>
-  .lesson{
-    margin-top: 2%;
-  }
+  
 </style>
 
 <script>

@@ -16,6 +16,15 @@ const routes = [{
             import ('../views/sheet/SheetList.vue')
     },
     {
+        path: '/sheets/add',
+        name: "SheetAdd",
+        component: () =>
+            import ('../views/sheet/SheetAdd.vue'),
+        meta: {
+            title: "Ajouter une fiche"
+        }
+    },
+    {
         path: '/teachers',
         name: 'Teacher',
         meta: {
@@ -25,6 +34,15 @@ const routes = [{
             import ('../views/teacher/TeacherList.vue')
     },
     {
+        path: '/teachers/add',
+        name: "TeacherAdd",
+        component: () =>
+            import ('../views/teacher/TeacherAdd.vue'),
+        meta: {
+            title: "Ajouter un professeur"
+        }
+    },
+    {
         path: '/lessons',
         name: 'Lesson',
         meta: {
@@ -32,6 +50,15 @@ const routes = [{
         },
         component: () =>
             import ('../views/lesson/LessonList.vue')
+    },
+    {
+        path: '/lessons/add',
+        name: "LessonAdd",
+        component: () =>
+            import ('../views/lesson/LessonAdd.vue'),
+        meta: {
+            title: "Ajouter un cours"
+        }
     },
 
 ]

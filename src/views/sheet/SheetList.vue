@@ -2,18 +2,17 @@
   <div class="sheet">
     <div class="row">
       <div class="col-10"><h1>Les fiches</h1></div>
-      <div class="col-2"><button type="button" class="btn btn-success">Ajouter une fiche</button></div>
+      <div class="col-2">
+        <router-link class="btn btn-success" to="/sheets/add">Ajouter une fiche</router-link ></div>
     </div>
     <div v-for="sheet in sheets"  :key="sheet.id">
       <SheetItem :sheet="sheet"/>
     </div>
+    <div v-if="sheets.length == 0">
+        Il n'y a aucune fiche actuellement...
+    </div>
   </div>
 </template>
-<style scoped>
-  .sheet{
-    margin-top: 2%;
-  }
-</style>
 
 <script>
 import axios from "axios";

@@ -25,7 +25,7 @@
     </div>
   </div>
 </nav>
-<div class="container">
+<div class="container position">
   <router-view/>
 </div>
 </template>
@@ -34,6 +34,11 @@
 .active{
     color: white;
     font-weight: bold;
+  }
+
+  .position{
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
 
 </style>

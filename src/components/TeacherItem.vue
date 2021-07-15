@@ -11,7 +11,7 @@
         </div>
         <div class="card-body" v-if="lessons.length>0">
           <blockquote class="blockquote mb-0">
-            <i>{{lessons.length > 1 ? "Les":"Le"}} cours {{lessons.length > 1 ? "donnés":"donné"}} par {{teacher.name}}: </i>
+            <i>{{lessons.length > 1 ? "Les":"Le"}} cours {{lessons.length > 1 ? "donnés":"donné"}} par {{teacher.name}} : </i>
           </blockquote>
             <div v-for="lesson in lessons"  :key="lesson.id">
                 <div class="list-group-item list-group-item-action">{{lesson.name}}</div>
@@ -53,7 +53,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .center-v {
   margin-top: auto;

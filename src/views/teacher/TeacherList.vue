@@ -2,17 +2,19 @@
   <div class="teacher">
     <div class="row">
       <div class="col-10"><h1>Les professeurs</h1></div>
-      <div class="col-2"><button type="button" class="btn btn-success">Ajouter un professeur</button></div>
+      <div class="col-2">
+        <router-link class="btn btn-success" to="/teachers/add">Ajouter un professeur</router-link ></div>
     </div>
     <div v-for="teacher in teachers"  :key="teacher.id">
       <TeacherItem :teacher="teacher"/>
     </div>
+    <div v-if="teachers.length == 0">
+        Il n'y a aucun professeur actuellement...
+    </div>
   </div>
 </template>
 <style scoped>
-  .teacher{
-    margin-top: 2%;
-  }
+ 
 </style>
 
 <script>
