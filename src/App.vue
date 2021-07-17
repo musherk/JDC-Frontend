@@ -43,7 +43,6 @@
   footer{
     margin-bottom: 1%;
     margin-right: 1%;
-
     text-align: right;
   }
 

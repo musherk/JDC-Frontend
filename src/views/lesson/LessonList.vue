@@ -12,9 +12,6 @@
         </div>
   </div>
 </template>
-<style scoped>
-  
-</style>
 
 <script>
 import axios from "axios";

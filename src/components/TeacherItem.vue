@@ -23,7 +23,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 
@@ -57,10 +56,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-.center-v {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-</style>
