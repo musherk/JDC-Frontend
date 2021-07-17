@@ -1,7 +1,17 @@
 <template>
   <div class="sheet">
     <div class="row">
-      <div class="col-10"><h1>Les fiches</h1></div>
+      <div class="col-6"><h1>Les fiches</h1><i v-if="sheets.length != 0">Il y a {{sheets.length}} fiche(s)</i></div>
+      <div class="col-2">
+         <div class="form-group">
+              <select class="form-select" @change="onLessonChange($event)" v-model="lessonSelected" required>
+                  <option v-bind:value="-1" selected>Afficher toutes les fiches</option>
+                  <option v-for="lesson in lessons" v-bind:key="lesson.id" v-bind:value="lesson.id">
+                      {{ lesson.name }}
+                  </option>
+              </select>
+      </div>
+      </div>
       <div class="col-2">
         <router-link class="btn btn-success" to="/sheets/add">Ajouter une fiche</router-link ></div>
     </div>
@@ -25,11 +35,15 @@ export default {
   },
   data(){
     return {
-      sheets : []
+      sheets : [],
+      sheetsOriginal : [],
+      lessonSelected:-1,
+      lessons: []
     }
   },
   mounted(){
     this.getSheets();
+    this.getLessons();
   },
   methods:{
     deleteSheet(id){
@@ -39,10 +53,23 @@ export default {
         }
       });
     },
+    getLessons(){
+       axios.get(`http://localhost:8000/api/lessons`,{}).then((res) => {
+        this.lessons = res.data;  
+      });
+    },
     getSheets(){
        axios.get(`http://localhost:8000/api/sheets`,{}).then((res) => {
-        this.sheets = res.data;  
+        this.sheets = this.sheetsOriginal = res.data;  
       });
+    },
+    onLessonChange(event){
+      const lesson_id = event.target.value;
+      if(lesson_id == -1){
+        this.sheets = this.sheetsOriginal;
+      }else{
+        this.sheets = this.sheetsOriginal.filter(sheet => sheet.lesson_id == lesson_id);
+      }
     }
   }
 }

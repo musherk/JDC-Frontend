@@ -1,7 +1,10 @@
 <template>
   <div class="teacher">
     <div class="row">
-      <div class="col-10"><h1>Les professeurs</h1></div>
+      <div class="col-10">
+          <h1>Les professeurs</h1>
+          <i v-if="teachers.length != 0">Il y a {{teachers.length}} professeur(s)</i>
+        </div>
       <div class="col-2">
         <router-link class="btn btn-success" to="/teachers/add">Ajouter un professeur</router-link ></div>
     </div>

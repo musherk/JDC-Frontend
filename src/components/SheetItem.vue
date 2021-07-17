@@ -5,7 +5,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col-10"><b>{{lesson.name}} - {{teacher.name}} - {{sheet.local_number}}</b></div>
-            <div class="col-1 align-self-end"><button type="button" class="btn btn-warning">Editer</button></div>
+            <div class="col-1 align-self-end"><router-link :to="{ name: 'SheetEdit', params: { id: sheet.id }}"><button class="btn btn-warning">Editer</button></router-link></div>
             <div class="col-1"><button type="button" class="btn btn-danger" @click="deleteSheet">Supprimer</button></div>
           </div>
           

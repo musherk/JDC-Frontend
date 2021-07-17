@@ -5,7 +5,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col-10"><b>{{teacher.name}}</b></div>
-            <div class="col-1 align-self-end"><button type="button" class="btn btn-warning">Editer</button></div>
+            <div class="col-1 align-self-end"><router-link :to="{ name: 'TeacherEdit', params: { id: teacher.id }}"><button class="btn btn-warning">Editer</button></router-link></div>
             <div class="col-1"><button type="button" class="btn btn-danger" @click="deleteTeacher">Supprimer</button></div>
           </div>
         </div>

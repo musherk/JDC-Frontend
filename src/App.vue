@@ -18,16 +18,15 @@
           <router-link class="nav-link pr-3" to="/lessons">Cours</router-link>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Rechercher..." aria-label="Rechercher...">
-        <button class="btn btn-outline-success" type="submit">Rechercher</button>
-      </form>
     </div>
   </div>
 </nav>
 <div class="container position">
   <router-view/>
 </div>
+<footer>
+  © Musheh Kazarjan | 2021
+</footer>
 </template>
 
 <style lang="scss">
@@ -39,6 +38,13 @@
   .position{
     margin-top: 2%;
     margin-bottom: 2%;
+  }
+
+  footer{
+    margin-bottom: 1%;
+    margin-right: 1%;
+
+    text-align: right;
   }
 
 </style>

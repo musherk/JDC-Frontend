@@ -25,6 +25,15 @@ const routes = [{
         }
     },
     {
+        path: '/sheets/edit/:id',
+        name: "SheetEdit",
+        component: () =>
+            import ('../views/sheet/SheetEdit.vue'),
+        meta: {
+            title: "Editer une fiche"
+        }
+    },
+    {
         path: '/teachers',
         name: 'Teacher',
         meta: {
@@ -43,6 +52,15 @@ const routes = [{
         }
     },
     {
+        path: '/teachers/edit/:id',
+        name: "TeacherEdit",
+        component: () =>
+            import ('../views/teacher/TeacherEdit.vue'),
+        meta: {
+            title: "Editer un professeur"
+        }
+    },
+    {
         path: '/lessons',
         name: 'Lesson',
         meta: {
@@ -58,6 +76,15 @@ const routes = [{
             import ('../views/lesson/LessonAdd.vue'),
         meta: {
             title: "Ajouter un cours"
+        }
+    },
+    {
+        path: '/lessons/edit/:id',
+        name: "LessonEdit",
+        component: () =>
+            import ('../views/lesson/LessonEdit.vue'),
+        meta: {
+            title: "Editer un cours"
         }
     },
 
