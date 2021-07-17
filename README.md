@@ -1,4 +1,4 @@
-# jdc-frontend
+# JDC-Frontend
 
 ## Project setup
 ```
